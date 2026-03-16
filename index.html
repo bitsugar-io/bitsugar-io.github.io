@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bitsugar — Engineering leadership for cloud-native systems</title>
+<meta name="description" content="Cloud infrastructure, platform engineering, and AI consulting. 25+ years building production systems that scale.">
+<link rel="icon" type="image/png" href="logo.png">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+  }
+  .hero-logo {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 32px;
+  }
+  .hero-logo img {
+    width: 100%;
+    height: 100%;
+  }
+  .wordmark {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #4FF8D2;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .tagline {
+    font-size: 20px;
+    color: #888;
+    max-width: 460px;
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: transparent;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #aaa;
+    text-decoration: none;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .hero-cta:hover {
+    border-color: #4FF8D2;
+    color: #4FF8D2;
+  }
+  .hero-sub {
+    margin-top: 64px;
+    display: flex;
+    gap: 32px;
+    color: #444;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 1px;
+  }
+
+  section {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 100px 24px;
+  }
+  .section-label {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #4FF8D2;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 48px;
+    color: #fff;
+  }
+
+  .divider {
+    max-width: 880px;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: #1a1a1a;
+    border: 1px solid #1a1a1a;
+  }
+  .service-card {
+    background: #0a0a0a;
+    padding: 32px;
+  }
+  .service-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .service-card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .service-label {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    color: #4FF8D2;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    opacity: 0.7;
+  }
+
+  .oss-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .oss-item {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .oss-item:last-child { border-bottom: none; }
+  .oss-name {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4FF8D2;
+    min-width: 130px;
+    text-decoration: none;
+  }
+  .oss-name:hover { text-decoration: underline; }
+  .oss-role {
+    font-size: 12px;
+    color: #444;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    min-width: 70px;
+  }
+  .oss-desc {
+    color: #666;
+    font-size: 14px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .tech-tag {
+    padding: 6px 16px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 3px;
+    color: #888;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .contact {
+    text-align: center;
+    padding: 120px 24px;
+    border-top: 1px solid #1a1a1a;
+  }
+  .contact .section-title {
+    margin-bottom: 16px;
+  }
+  .contact-sub {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+  .contact-email {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 24px;
+    color: #4FF8D2;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .contact-email:hover { text-decoration: underline; }
+  .contact-links {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+  .contact-links a {
+    color: #444;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    transition: color 0.2s;
+  }
+  .contact-links a:hover { color: #4FF8D2; }
+
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: #333;
+    font-size: 12px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    border-top: 1px solid #111;
+  }
+
+  @media (max-width: 640px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .wordmark { font-size: 28px; }
+    .tagline { font-size: 17px; }
+    .oss-item { flex-direction: column; gap: 4px; }
+    .oss-name { min-width: auto; }
+    .contact-email { font-size: 18px; }
+    .hero-sub { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-logo">
+    <img src="logo.png" alt="bitsugar">
+  </div>
+  <div class="wordmark">BITSUGAR</div>
+  <p class="tagline">Infrastructure that scales. Systems that don't break.</p>
+  <a href="mailto:team@bitsugar.io" class="hero-cta">team@bitsugar.io &rarr;</a>
+  <div class="hero-sub">
+    <span>Cloud</span>
+    <span>Platform</span>
+    <span>Automation</span>
+    <span>AI</span>
+  </div>
+</div>
+
+<section>
+  <div class="section-label">// services</div>
+  <h2 class="section-title">What we do</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-label">01</div>
+      <h3>Cloud Architecture</h3>
+      <p>Migrate, modernize, or build from scratch across AWS, GCP, and hybrid environments. Strategy that avoids lock-in.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-label">02</div>
+      <h3>Platform Engineering</h3>
+      <p>Your engineers should ship features, not fight infrastructure. Internal developer platforms that remove friction.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-label">03</div>
+      <h3>DevOps & SRE</h3>
+      <p>Reliability isn't optional. Observability, incident response, and operational practices that keep your systems running.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-label">04</div>
+      <h3>Infrastructure Automation</h3>
+      <p>Stop deploying by hand. Infrastructure as code, configuration management, and testing frameworks that make it repeatable.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-label">05</div>
+      <h3>AI & Intelligent Systems</h3>
+      <p>Bring AI into your product. Agent architectures, fine-tuning pipelines, and production-grade ML infrastructure.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-label">06</div>
+      <h3>Mobile Applications</h3>
+      <p>From concept to App Store. Native and cross-platform mobile experiences built for performance and polish.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">// open source</div>
+  <h2 class="section-title">Built in the open</h2>
+  <div class="oss-list">
+    <div class="oss-item">
+      <a class="oss-name" href="https://github.com/ansible/molecule">molecule</a>
+      <span class="oss-role">creator</span>
+      <span class="oss-desc">Testing framework for Ansible — the industry standard for infrastructure testing</span>
+    </div>
+    <div class="oss-item">
+      <a class="oss-name" href="https://github.com/retr0h/gilt">gilt</a>
+      <span class="oss-role">creator</span>
+      <span class="oss-desc">Git layering tool for overlay-based repository management</span>
+    </div>
+    <div class="oss-item">
+      <a class="oss-name" href="https://github.com/retr0h/osapi">osapi</a>
+      <span class="oss-role">creator</span>
+      <span class="oss-desc">Linux system management API with async processing</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">// stack</div>
+  <h2 class="section-title">25+ years building production systems</h2>
+  <div class="tech-tags">
+    <span class="tech-tag">Go</span>
+    <span class="tech-tag">Rust</span>
+    <span class="tech-tag">Python</span>
+    <span class="tech-tag">TypeScript</span>
+    <span class="tech-tag">Kubernetes</span>
+    <span class="tech-tag">Docker</span>
+    <span class="tech-tag">Helm</span>
+    <span class="tech-tag">AWS</span>
+    <span class="tech-tag">GCP</span>
+    <span class="tech-tag">OpenStack</span>
+    <span class="tech-tag">NATS</span>
+    <span class="tech-tag">Ansible</span>
+  </div>
+</section>
+
+<div class="contact">
+  <div class="section-label">// contact</div>
+  <h2 class="section-title">Let's build something.</h2>
+  <p class="contact-sub">Cloud migrations, platform builds, or scaling challenges.</p>
+  <a href="mailto:team@bitsugar.io" class="contact-email">team@bitsugar.io</a>
+  <div class="contact-links">
+    <a href="https://github.com/bitsugar-io">github</a>
+    <a href="https://github.com/retr0h">open source</a>
+  </div>
+</div>
+
+<footer>&copy; 2026 bitsugar</footer>
+
+</body>
+</html>
