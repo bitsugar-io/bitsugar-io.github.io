@@ -140,6 +140,17 @@
     display: flex;
     flex-direction: column;
   }
+  .oss-group-label {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #4FF8D2;
+    opacity: 0.6;
+    margin-top: 32px;
+    margin-bottom: 4px;
+  }
+  .oss-group-label:first-child { margin-top: 0; }
   .oss-item {
     display: flex;
     align-items: baseline;
@@ -301,6 +312,7 @@
   <div class="section-label">// open source</div>
   <h2 class="section-title">Built in the open</h2>
   <div class="oss-list">
+    <div class="oss-group-label">// infrastructure & tooling</div>
     <div class="oss-item">
       <a class="oss-name" href="https://github.com/ansible/molecule">molecule</a>
       <span class="oss-role">creator</span>
@@ -317,9 +329,20 @@
       <span class="oss-desc">Linux system management API with async processing</span>
     </div>
     <div class="oss-item">
+      <a class="oss-name" href="https://github.com/osapi-io/gohai">gohai</a>
+      <span class="oss-role">creator</span>
+      <span class="oss-desc">Go-based system fact collector inspired by Chef Ohai</span>
+    </div>
+    <div class="oss-item">
       <a class="oss-name" href="https://github.com/retr0h/tlock">tlock</a>
       <span class="oss-role">creator</span>
       <span class="oss-desc">Terminal lock screen for macOS with Touch ID and xlock-style worm screensaver</span>
+    </div>
+    <div class="oss-group-label">// apps</div>
+    <div class="oss-item">
+      <a class="oss-name" href="https://github.com/bitsugar-io/freebies">freebies</a>
+      <span class="oss-role">creator</span>
+      <span class="oss-desc">iOS app that alerts you when sports teams trigger free food deals</span>
     </div>
   </div>
 </section>
