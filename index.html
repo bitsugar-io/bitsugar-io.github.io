@@ -3,383 +3,362 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>bitsugar — Engineering leadership for cloud-native systems</title>
-<meta name="description" content="Cloud infrastructure, platform engineering, and AI consulting. 25+ years building production systems that scale.">
+<title>bitsugar · Agentic delivery, cloud platforms, and Mac and iOS apps</title>
+<meta name="description" content="An engineering studio for agentic software delivery, cloud platforms, and native Mac and iOS apps. 25+ years building production systems.">
 <link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --ink: #0C1412;
+    --ink-raised: #121D1A;
+    --cube: #8BCBBF;
+    --sugar: #E4F2EE;
+    --mist: #A3B8B2;
+    --seam: #22302D;
+    --spark: #4FF8D2;
+
+    --text: 1.1875rem;   /* 19px */
+    --step-1: 1.5625rem; /* 25px */
+    --step-3: clamp(2.375rem, 4.2vw, 3.5rem);
+    --step-4: clamp(2.75rem, 6.4vw, 5.25rem);
+
+    --sans: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'Martian Mono', 'SF Mono', ui-monospace, monospace;
+    --width: 75rem;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --closing: clamp(1.125rem, 3vw, 1.875rem);
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--ink); }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #0a0a0a;
-    color: #fff;
-    line-height: 1.6;
+    font-family: var(--sans);
+    font-size: var(--text);
+    font-optical-sizing: auto;
+    line-height: 1.55;
+    color: var(--sugar);
+    background: var(--ink);
     -webkit-font-smoothing: antialiased;
   }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--spark); outline-offset: 4px; border-radius: 2px; }
 
+  .wrap { max-width: var(--width); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* Header */
+  .masthead { display: flex; align-items: center; justify-content: space-between; padding-top: 2rem; }
+  .brand { display: flex; align-items: center; gap: 0.875rem; text-decoration: none; }
+  .brand img { width: 2.75rem; height: 2.75rem; }
+  .wordmark { font-family: var(--mono); font-weight: 600; font-size: 1.125rem; letter-spacing: 0.04em; color: var(--cube); }
+  .masthead nav { display: flex; gap: 1.75rem; font-size: 1rem; }
+  .masthead nav a { color: var(--mist); text-decoration: none; }
+  .masthead nav a:hover { color: var(--sugar); }
+
+  /* Hero */
   .hero {
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 24px;
-  }
-  .hero-logo {
-    width: 90px;
-    height: 90px;
-    margin-bottom: 32px;
-  }
-  .hero-logo img {
-    width: 100%;
-    height: 100%;
-  }
-  .wordmark {
-    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
-    font-size: 38px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    color: #4FF8D2;
-    margin-bottom: 24px;
-    text-transform: uppercase;
-  }
-  .tagline {
-    font-size: 20px;
-    color: #888;
-    max-width: 460px;
-    margin-bottom: 48px;
-    font-weight: 400;
-  }
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 28px;
-    background: transparent;
-    border: 1px solid #333;
-    border-radius: 4px;
-    color: #aaa;
-    text-decoration: none;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 14px;
-    transition: all 0.2s;
-  }
-  .hero-cta:hover {
-    border-color: #4FF8D2;
-    color: #4FF8D2;
-  }
-  .hero-sub {
-    margin-top: 64px;
-    display: flex;
-    gap: 32px;
-    color: #444;
-    font-size: 13px;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    letter-spacing: 1px;
-  }
-
-  section {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 100px 24px;
-  }
-  .section-label {
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #4FF8D2;
-    margin-bottom: 16px;
-  }
-  .section-title {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 48px;
-    color: #fff;
-  }
-
-  .divider {
-    max-width: 880px;
-    margin: 0 auto;
-    border: none;
-    border-top: 1px solid #1a1a1a;
-  }
-
-  .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-    background: #1a1a1a;
-    border: 1px solid #1a1a1a;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding: clamp(4rem, 10vh, 7.5rem) var(--gutter) clamp(4.5rem, 12vh, 8rem);
   }
-  .service-card {
-    background: #0a0a0a;
-    padding: 32px;
+  .hero h1 {
+    font-size: var(--step-4);
+    font-weight: 650;
+    line-height: 1.02;
+    letter-spacing: -0.012em;
+    max-width: 13ch;
   }
-  .service-card h3 {
-    font-size: 16px;
+  .hero .lede { margin-top: 1.75rem; font-size: var(--step-1); line-height: 1.45; color: var(--mist); max-width: 30ch; }
+  .cta {
+    display: inline-block;
+    margin-top: 2.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 999px;
+    background: var(--cube);
+    color: var(--ink);
     font-weight: 600;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-  .service-card p {
-    color: #666;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-  .service-label {
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 11px;
-    color: #4FF8D2;
-    letter-spacing: 1px;
-    margin-bottom: 14px;
-    opacity: 0.7;
-  }
-
-  .oss-list {
-    display: flex;
-    flex-direction: column;
-  }
-  .oss-group-label {
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #4FF8D2;
-    opacity: 0.6;
-    margin-top: 32px;
-    margin-bottom: 4px;
-  }
-  .oss-group-label:first-child { margin-top: 0; }
-  .oss-item {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-    padding: 20px 0;
-    border-bottom: 1px solid #1a1a1a;
-  }
-  .oss-item:last-child { border-bottom: none; }
-  .oss-name {
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 15px;
-    font-weight: 600;
-    color: #4FF8D2;
-    min-width: 130px;
+    font-size: 1.0625rem;
     text-decoration: none;
   }
-  .oss-name:hover { text-decoration: underline; }
-  .oss-role {
-    font-size: 12px;
-    color: #444;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    min-width: 70px;
-  }
-  .oss-desc {
-    color: #666;
-    font-size: 14px;
-  }
+  .cta:hover { background: var(--sugar); }
 
-  .tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 24px;
-  }
-  .tech-tag {
-    padding: 6px 16px;
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 3px;
-    color: #888;
-    font-size: 13px;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-  }
+  /* How an engagement runs: a real sequence, so it is numbered */
+  .engage { border-left: 1px solid var(--seam); padding-left: clamp(1.5rem, 3vw, 2.5rem); }
+  .engage h2 { font-size: 1rem; font-weight: 600; color: var(--cube); margin-bottom: 1.25rem; }
+  .engage ol { list-style: none; counter-reset: step; }
+  .engage li { counter-increment: step; display: grid; grid-template-columns: 2.25rem 1fr; padding: 1.25rem 0; border-top: 1px solid var(--seam); }
+  .engage li:first-child { border-top: 0; padding-top: 0; }
+  .engage li::before { content: counter(step); font-family: var(--mono); font-size: 0.9375rem; color: var(--cube); padding-top: 0.3rem; }
+  .engage h3 { font-size: var(--step-1); font-weight: 600; line-height: 1.25; }
+  .engage p { margin-top: 0.25rem; color: var(--mist); }
 
-  .contact {
-    text-align: center;
-    padding: 120px 24px;
-    border-top: 1px solid #1a1a1a;
+  /* Sections */
+  .block { padding: clamp(4rem, 10vw, 7rem) 0; border-top: 1px solid var(--seam); }
+  .block-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 2rem; margin-bottom: 3rem; align-items: end; }
+  .block h2 { font-size: var(--step-3); font-weight: 650; line-height: 1.08; letter-spacing: -0.01em; }
+  .block-head p { color: var(--mist); max-width: 52ch; }
+  .block-head--wide { grid-template-columns: 1fr; }
+
+  .group-name { font-size: 1rem; font-weight: 600; color: var(--cube); padding: 2.5rem 0 0.75rem; }
+  .block-head + .group-name { padding-top: 0; }
+
+  .rows { list-style: none; }
+  .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 2rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--seam);
   }
-  .contact .section-title {
-    margin-bottom: 16px;
-  }
-  .contact-sub {
-    color: #555;
-    font-size: 15px;
-    margin-bottom: 40px;
-  }
+  .row h4 { font-size: var(--step-1); font-weight: 600; line-height: 1.25; }
+  .row p { color: var(--mist); max-width: 58ch; }
+  .row a.name { color: var(--cube); text-decoration: none; }
+  .row a.name:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+  .stack { display: flex; flex-wrap: wrap; gap: 0.625rem; list-style: none; }
+  .stack li { padding: 0.5rem 1.125rem; border: 1px solid var(--seam); border-radius: 999px; background: var(--ink-raised); color: var(--sugar); font-size: 1.0625rem; }
+
+  /* Contact */
+  .contact { padding: clamp(4.5rem, 10vw, 7rem) 0 clamp(4rem, 8vw, 6rem); border-top: 1px solid var(--seam); }
+  .contact h2 { font-size: var(--step-4); font-weight: 650; line-height: 1.02; letter-spacing: -0.012em; }
+  .contact p { margin-top: 1.25rem; font-size: var(--step-1); color: var(--mist); max-width: 44ch; }
   .contact-email {
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 24px;
-    color: #4FF8D2;
-    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 0;
+    font-family: var(--mono);
+    font-size: clamp(1.5rem, 3.6vw, 2.5rem);
     font-weight: 600;
-    letter-spacing: 1px;
-  }
-  .contact-email:hover { text-decoration: underline; }
-  .contact-links {
-    margin-top: 48px;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-  }
-  .contact-links a {
-    color: #444;
+    color: var(--cube);
     text-decoration: none;
-    font-size: 13px;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    transition: color 0.2s;
   }
-  .contact-links a:hover { color: #4FF8D2; }
+  .contact-email:hover { color: var(--sugar); }
 
-  footer {
-    text-align: center;
-    padding: 32px;
-    color: #333;
-    font-size: 12px;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    border-top: 1px solid #111;
+  .contact-row { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; margin-top: 2.5rem; }
+  .profiles { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; }
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1.25rem 0.5rem 0.5rem;
+    border: 1px solid var(--seam);
+    border-radius: 999px;
+    background: var(--ink-raised);
+    text-decoration: none;
   }
+  .profile:hover { border-color: var(--cube); }
+  .profile img, .profile svg { width: 2.5rem; height: 2.5rem; background: var(--seam); border-radius: 50%; flex: none; }
+  .profile svg { padding: 0.5rem; fill: var(--sugar); }
+  .profile strong { display: block; font-size: 1.0625rem; font-weight: 600; line-height: 1.2; }
+  .profile span { color: var(--mist); font-size: 0.875rem; }
 
-  @media (max-width: 640px) {
-    .services-grid { grid-template-columns: 1fr; }
-    .wordmark { font-size: 28px; }
-    .tagline { font-size: 17px; }
-    .oss-item { flex-direction: column; gap: 4px; }
-    .oss-name { min-width: auto; }
-    .contact-email { font-size: 18px; }
-    .hero-sub { flex-direction: column; gap: 8px; }
+  footer { padding-top: clamp(1.5rem, 4vw, 3rem); padding-bottom: 3rem; color: var(--mist); font-size: 0.9375rem; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; }
+    .engage { border-left: 0; padding-left: 0; border-top: 1px solid var(--seam); padding-top: 2rem; }
+    .block-head, .row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .block-head { margin-bottom: 2rem; }
+  }
+  @media (max-width: 520px) {
+    .masthead nav a:not([href="#contact"]) { display: none; }
+    .profiles { flex-direction: column; align-items: stretch; width: 100%; }
+    .contact-email { font-size: 1.375rem; }
   }
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <div class="hero-logo">
-    <img src="logo.png" alt="bitsugar">
-  </div>
-  <div class="wordmark">BITSUGAR</div>
-  <p class="tagline">Infrastructure that scales. Systems that don't break.</p>
-  <a href="mailto:team@bitsugar.io" class="hero-cta">team@bitsugar.io &rarr;</a>
-  <div class="hero-sub">
-    <span>Cloud</span>
-    <span>Platform</span>
-    <span>Automation</span>
-    <span>AI</span>
-  </div>
-</div>
+<header class="wrap masthead">
+  <a class="brand" href="/" aria-label="bitsugar home">
+    <img src="logo.png" alt="">
+    <span class="wordmark">bitsugar</span>
+  </a>
+  <nav aria-label="Sections">
+    <a href="#services">Services</a>
+    <a href="#open-source">Open source</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<section>
-  <div class="section-label">// services</div>
-  <h2 class="section-title">What we do</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-label">01</div>
-      <h3>Cloud Architecture</h3>
-      <p>Migrate, modernize, or build from scratch across AWS, GCP, and hybrid environments. Strategy that avoids lock-in.</p>
+<main>
+  <section class="wrap hero">
+    <div>
+      <h1>Infrastructure that scales. Systems that don't break.</h1>
+      <p class="lede">An engineering studio for agentic software delivery, cloud platforms, and native Mac and iOS apps.</p>
+      <a class="cta" href="mailto:team@bitsugar.io">Email team@bitsugar.io</a>
     </div>
-    <div class="service-card">
-      <div class="service-label">02</div>
-      <h3>Platform Engineering</h3>
-      <p>Your engineers should ship features, not fight infrastructure. Internal developer platforms that remove friction.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-label">03</div>
-      <h3>DevOps & SRE</h3>
-      <p>Reliability isn't optional. Observability, incident response, and operational practices that keep your systems running.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-label">04</div>
-      <h3>Infrastructure Automation</h3>
-      <p>Stop deploying by hand. Infrastructure as code, configuration management, and testing frameworks that make it repeatable.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-label">05</div>
-      <h3>AI & Intelligent Systems</h3>
-      <p>Bring AI into your product. Agent architectures, fine-tuning pipelines, and production-grade ML infrastructure.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-label">06</div>
-      <h3>Mobile Applications</h3>
-      <p>From concept to App Store. Native and cross-platform mobile experiences built for performance and polish.</p>
-    </div>
-  </div>
-</section>
+    <aside class="engage" aria-labelledby="engage-title">
+      <h2 id="engage-title">How we work with you</h2>
+      <ol>
+        <li><div><h3>Scope it together</h3><p>We start with your team, your code, and the problem worth solving.</p></div></li>
+        <li><div><h3>Build in your repos</h3><p>We work inside your tools and process, alongside your engineers.</p></div></li>
+        <li><div><h3>Hand it off</h3><p>You keep the code, the docs, and the know-how to run it.</p></div></li>
+      </ol>
+    </aside>
+  </section>
 
-<hr class="divider">
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>What we do</h2>
+        <p>We help teams put AI agents into real delivery work, run the platforms underneath, and build the apps on top.</p>
+      </div>
 
-<section>
-  <div class="section-label">// open source</div>
-  <h2 class="section-title">Built in the open</h2>
-  <div class="oss-list">
-    <div class="oss-group-label">// infrastructure & tooling</div>
-    <div class="oss-item">
-      <a class="oss-name" href="https://github.com/ansible/molecule">molecule</a>
-      <span class="oss-role">creator</span>
-      <span class="oss-desc">Testing framework for Ansible — the industry standard for infrastructure testing</span>
-    </div>
-    <div class="oss-item">
-      <a class="oss-name" href="https://github.com/retr0h/gilt">gilt</a>
-      <span class="oss-role">creator</span>
-      <span class="oss-desc">Git layering tool for overlay-based repository management</span>
-    </div>
-    <div class="oss-item">
-      <a class="oss-name" href="https://github.com/retr0h/osapi">osapi</a>
-      <span class="oss-role">creator</span>
-      <span class="oss-desc">Linux system management API with async processing</span>
-    </div>
-    <div class="oss-item">
-      <a class="oss-name" href="https://github.com/osapi-io/gohai">gohai</a>
-      <span class="oss-role">creator</span>
-      <span class="oss-desc">Go-based system fact collector inspired by Chef Ohai</span>
-    </div>
-    <div class="oss-item">
-      <a class="oss-name" href="https://github.com/retr0h/tlock">tlock</a>
-      <span class="oss-role">creator</span>
-      <span class="oss-desc">Terminal lock screen for macOS with Touch ID and xlock-style worm screensaver</span>
-    </div>
-    <div class="oss-group-label">// apps</div>
-    <div class="oss-item">
-      <a class="oss-name" href="https://github.com/bitsugar-io/freebies">freebies</a>
-      <span class="oss-role">creator</span>
-      <span class="oss-desc">iOS app that alerts you when sports teams trigger free food deals</span>
-    </div>
-  </div>
-</section>
+      <h3 class="group-name">Agents and AI</h3>
+      <ul class="rows">
+        <li class="row">
+          <h4>Agentic software delivery</h4>
+          <p>Coding agents that take work from ticket to pull request inside your existing SDLC. Tooling your whole team shares, and the same gates for every change, whether a person or an agent wrote it.</p>
+        </li>
+        <li class="row">
+          <h4>Verification loops</h4>
+          <p>Tests, evals and live checks wired into the loop, so agent output is proven before it merges and every failure feeds the next attempt.</p>
+        </li>
+        <li class="row">
+          <h4>Multi-agent systems</h4>
+          <p>Agents that coordinate over agent-to-agent (A2A) protocols, reach your tools through MCP with scoped access, and are measured on whether they get the job right.</p>
+        </li>
+      </ul>
 
-<hr class="divider">
+      <h3 class="group-name">Platforms and cloud</h3>
+      <ul class="rows">
+        <li class="row">
+          <h4>Cloud architecture</h4>
+          <p>Migrate, modernize, or build from scratch across AWS, GCP, and hybrid environments, with a strategy that avoids lock-in.</p>
+        </li>
+        <li class="row">
+          <h4>Platform engineering</h4>
+          <p>Internal developer platforms that remove friction, so your engineers ship features instead of fighting infrastructure.</p>
+        </li>
+        <li class="row">
+          <h4>DevOps and SRE</h4>
+          <p>Observability, incident response, and operational practices that keep your systems running.</p>
+        </li>
+        <li class="row">
+          <h4>Infrastructure automation</h4>
+          <p>Infrastructure as code, configuration management, and testing frameworks that make every deploy repeatable.</p>
+        </li>
+      </ul>
 
-<section>
-  <div class="section-label">// stack</div>
-  <h2 class="section-title">25+ years building production systems</h2>
-  <div class="tech-tags">
-    <span class="tech-tag">Go</span>
-    <span class="tech-tag">Rust</span>
-    <span class="tech-tag">Python</span>
-    <span class="tech-tag">TypeScript</span>
-    <span class="tech-tag">Kubernetes</span>
-    <span class="tech-tag">Docker</span>
-    <span class="tech-tag">Helm</span>
-    <span class="tech-tag">AWS</span>
-    <span class="tech-tag">GCP</span>
-    <span class="tech-tag">OpenStack</span>
-    <span class="tech-tag">NATS</span>
-    <span class="tech-tag">Ansible</span>
-  </div>
-</section>
+      <h3 class="group-name">Apps</h3>
+      <ul class="rows">
+        <li class="row">
+          <h4>Mac and iOS apps</h4>
+          <p>Native Swift apps for Mac and iPhone, from menu bar utilities with deep system and Accessibility integration to App Store releases.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-<div class="contact">
-  <div class="section-label">// contact</div>
-  <h2 class="section-title">Let's build something.</h2>
-  <p class="contact-sub">Cloud migrations, platform builds, or scaling challenges.</p>
-  <a href="mailto:team@bitsugar.io" class="contact-email">team@bitsugar.io</a>
-  <div class="contact-links">
-    <a href="https://github.com/bitsugar-io">github</a>
-    <a href="https://github.com/retr0h">open source</a>
-  </div>
-</div>
+  <section class="block" id="open-source">
+    <div class="wrap">
+      <div class="block-head">
+        <h2>Built in the open</h2>
+        <p>Projects we started and maintain.</p>
+      </div>
 
-<footer>&copy; 2026 bitsugar</footer>
+      <h3 class="group-name">Infrastructure and tooling</h3>
+      <ul class="rows">
+        <li class="row">
+          <h4><a class="name" href="https://github.com/ansible/molecule">molecule</a></h4>
+          <p>Testing framework for Ansible and the industry standard for infrastructure testing.</p>
+        </li>
+        <li class="row">
+          <h4><a class="name" href="https://github.com/retr0h/gilt">gilt</a></h4>
+          <p>Git layering tool for overlay-based repository management.</p>
+        </li>
+        <li class="row">
+          <h4><a class="name" href="https://github.com/retr0h/osapi">osapi</a></h4>
+          <p>Linux system management API with async processing.</p>
+        </li>
+        <li class="row">
+          <h4><a class="name" href="https://github.com/osapi-io/gohai">gohai</a></h4>
+          <p>Go-based system fact collector inspired by Chef Ohai.</p>
+        </li>
+        <li class="row">
+          <h4><a class="name" href="https://github.com/retr0h/tlock">tlock</a></h4>
+          <p>Terminal lock screen for macOS with Touch ID and an xlock-style worm screensaver.</p>
+        </li>
+        <li class="row">
+          <h4><a class="name" href="https://github.com/retr0h/jot">jot</a></h4>
+          <p>Terminal-first Markdown notes and todos with linked tasks, versioned in git and exposed to agents over MCP.</p>
+        </li>
+        <li class="row">
+          <h4><a class="name" href="https://github.com/retr0h/kvlt">kvlt</a></h4>
+          <p>Pluggable secrets vault using age and SSH keys by default, with optional cloud backends.</p>
+        </li>
+      </ul>
+
+      <h3 class="group-name">Mac and iOS apps</h3>
+      <ul class="rows">
+        <li class="row">
+          <h4><a class="name" href="https://github.com/bitsugar-io/opensesame">opensesame</a></h4>
+          <p>Mac menu bar app that puts keyboard hints on any app's buttons and windows, so you can click without a mouse.</p>
+        </li>
+        <li class="row">
+          <h4><a class="name" href="https://github.com/bitsugar-io/hocusfocus">hocusfocus</a></h4>
+          <p>Mac menu bar app for focus-follows-mouse between Ghostty windows, on your timing.</p>
+        </li>
+        <li class="row">
+          <h4><a class="name" href="https://github.com/bitsugar-io/freebies">freebies</a></h4>
+          <p>iOS app that alerts you when sports teams trigger free food deals.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="block-head block-head--wide">
+        <h2>25+ years building production systems</h2>
+      </div>
+      <ul class="stack">
+        <li>Go</li>
+        <li>Rust</li>
+        <li>Swift</li>
+        <li>Python</li>
+        <li>TypeScript</li>
+        <li>Kubernetes</li>
+        <li>Docker</li>
+        <li>Helm</li>
+        <li>AWS</li>
+        <li>GCP</li>
+        <li>OpenStack</li>
+        <li>NATS</li>
+        <li>Ansible</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Let's build something.</h2>
+      <p>Agentic delivery, platform builds, Mac and iOS apps, or a system that needs to scale.</p>
+      <div class="contact-row">
+      <a class="contact-email" href="mailto:team@bitsugar.io">team@bitsugar.io</a>
+      <ul class="profiles">
+        <li>
+          <a class="profile" href="https://github.com/bitsugar-io">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+            <div><strong>bitsugar-io</strong><span>Studio projects on GitHub</span></div>
+          </a>
+        </li>
+        <li>
+          <a class="profile" href="https://github.com/retr0h">
+            <img src="https://github.com/retr0h.png?size=160" alt="" width="56" height="56" loading="lazy">
+            <div><strong>retr0h</strong><span>Open source on GitHub</span></div>
+          </a>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">&copy; 2026 bitsugar</footer>
 
 </body>
 </html>
