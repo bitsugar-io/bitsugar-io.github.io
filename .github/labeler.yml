@@ -1,0 +1,10 @@
+site:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "index.html"
+          - "logo.png"
+          - "CNAME"
+github:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
