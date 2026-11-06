@@ -126,8 +126,6 @@
   .contact h2 { font-size: var(--step-4); font-weight: 650; line-height: 1.02; letter-spacing: -0.012em; }
   .contact p { margin-top: 1.25rem; font-size: var(--step-1); color: var(--mist); max-width: 34ch; }
   .contact-email {
-    display: inline-block;
-    margin-top: 2.5rem;
     font-family: var(--mono);
     font-size: var(--closing);
     font-weight: 600;
@@ -136,7 +134,8 @@
   }
   .contact-email:hover { color: var(--sugar); }
 
-  .profiles { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 3.5rem; list-style: none; }
+  .contact-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem 3rem; margin-top: 3rem; }
+  .profiles { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; }
   .profile {
     display: flex;
     align-items: center;
@@ -334,6 +333,7 @@
     <div class="wrap">
       <h2>Let's build something.</h2>
       <p>Agentic delivery, platform builds, Mac and iOS apps, or a system that needs to scale.</p>
+      <div class="contact-row">
       <a class="contact-email" href="mailto:team@bitsugar.io">team@bitsugar.io</a>
       <ul class="profiles">
         <li>
@@ -349,6 +349,7 @@
           </a>
         </li>
       </ul>
+      </div>
     </div>
   </section>
 </main>
