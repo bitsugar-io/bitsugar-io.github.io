@@ -122,37 +122,39 @@
   .stack li { padding: 0.5rem 1.125rem; border: 1px solid var(--seam); border-radius: 999px; background: var(--ink-raised); color: var(--sugar); font-size: 1.0625rem; }
 
   /* Contact */
-  .contact { padding: clamp(5rem, 12vw, 8.5rem) 0 clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--seam); }
+  .contact { padding: clamp(4.5rem, 10vw, 7rem) 0 clamp(4rem, 8vw, 6rem); border-top: 1px solid var(--seam); }
   .contact h2 { font-size: var(--step-4); font-weight: 650; line-height: 1.02; letter-spacing: -0.012em; }
-  .contact p { margin-top: 1.25rem; font-size: var(--step-1); color: var(--mist); max-width: 34ch; }
+  .contact p { margin-top: 1.25rem; font-size: var(--step-1); color: var(--mist); max-width: 44ch; }
   .contact-email {
+    display: inline-block;
+    padding: 0.5rem 0;
     font-family: var(--mono);
-    font-size: var(--closing);
+    font-size: clamp(1.5rem, 3.6vw, 2.5rem);
     font-weight: 600;
     color: var(--cube);
     text-decoration: none;
   }
   .contact-email:hover { color: var(--sugar); }
 
-  .contact-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem 3rem; margin-top: 3rem; }
+  .contact-row { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; margin-top: 2.5rem; }
   .profiles { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; }
   .profile {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0.875rem 1.5rem 0.875rem 0.875rem;
+    gap: 0.75rem;
+    padding: 0.5rem 1.25rem 0.5rem 0.5rem;
     border: 1px solid var(--seam);
     border-radius: 999px;
     background: var(--ink-raised);
     text-decoration: none;
   }
   .profile:hover { border-color: var(--cube); }
-  .profile img, .profile svg { width: 3.5rem; height: 3.5rem; border-radius: 50%; flex: none; }
-  .profile svg { padding: 0.625rem; background: var(--sugar); fill: var(--ink); }
-  .profile strong { display: block; font-size: var(--step-1); font-weight: 600; line-height: 1.2; }
-  .profile span { color: var(--mist); font-size: 1rem; }
+  .profile img, .profile svg { width: 2.5rem; height: 2.5rem; background: var(--seam); border-radius: 50%; flex: none; }
+  .profile svg { padding: 0.5rem; fill: var(--sugar); }
+  .profile strong { display: block; font-size: 1.0625rem; font-weight: 600; line-height: 1.2; }
+  .profile span { color: var(--mist); font-size: 0.875rem; }
 
-  footer { padding-top: clamp(1.5rem, 4vw, 3rem); padding-bottom: 2.5rem; color: var(--mist); font-size: 0.9375rem; }
+  footer { padding-top: clamp(1.5rem, 4vw, 3rem); padding-bottom: 3rem; color: var(--mist); font-size: 0.9375rem; }
 
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; }
@@ -161,7 +163,9 @@
     .block-head { margin-bottom: 2rem; }
   }
   @media (max-width: 520px) {
-    .masthead nav { display: none; }
+    .masthead nav a:not([href="#contact"]) { display: none; }
+    .profiles { flex-direction: column; align-items: stretch; width: 100%; }
+    .contact-email { font-size: 1.375rem; }
   }
 </style>
 </head>
