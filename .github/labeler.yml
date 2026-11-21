@@ -3,6 +3,7 @@ site:
       - any-glob-to-any-file:
           - "index.html"
           - "logo.png"
+          - "repos/**"
           - "CNAME"
 github:
   - changed-files:
