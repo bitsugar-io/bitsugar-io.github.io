@@ -2,7 +2,8 @@
 
 The bitsugar landing page, served at https://bitsugar.io.
 
-It is one hand-written `index.html` with its styles inline, plus `logo.png`.
+It is one hand-written `index.html` with its styles inline, plus `logo.png`
+and the project icons in `repos/`.
 GitHub Pages serves the root of `main` at the domain in `CNAME`. There is no
 build step, test suite or formatter.
 
